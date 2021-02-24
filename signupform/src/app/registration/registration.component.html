@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s3">
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="enrollementService.selectedUser._id" >  
+                <div class="row">
+                <div class="input-field col s12">
+                <input type="text" name='FirstName' #name='ngModel' [(ngModel)]="enrollementService.selectedUser.FirstName" placeholder="Enter first name" required>
+                <label>FirstName:<label class="red-text">*</label></label>
+                </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                <input type="text" name='LastName' #name='ngModel' [(ngModel)]="enrollementService.selectedUser.LastName" placeholder="Enter last name" required>
+                <label>LastName:</label>
+                </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                <input type="text" name='PhoneNumber' #name='ngModel' [(ngModel)]="enrollementService.selectedUser.PhoneNumber" placeholder="Enter PhoneNumber" required>
+                <label>PhoneNumber:</label>
+                </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                <input type="text" name='Email' #name='ngModel' [(ngModel)]="enrollementService.selectedUser.Email" placeholder="Enter Email" required>
+                <label>Email:</label>
+                </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                <input type="text"  name='Password' #name='ngModel' [(ngModel)]="enrollementService.selectedUser.Password" placeholder="Enter Password" required>
+                <label>Password:</label>
+                </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                <input type="text" name='ConfirmPassword' #name='ngModel' [(ngModel)]="enrollementService.selectedUser.ConfirmPassword" placeholder="Enter ConfirmPassword" required>
+                <label>ConfirmPassword:</label>
+                </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                <button class='btn btn-custom right' type='button' (click)='resetForm(userForm)' >Reset</button>
+                <button class='btn btn-custom right' type='submit' [disabled]="!userForm.valid">Submit</button>
+                </div>
+                </div>
+                
+            </form>
+            </div> 
+            <div class="col s7">
+                <table>
+                <thead>
+                <tr>
+                <th >FirstName</th>
+                <th>LastName</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>ConfirmPassword</th>
+                <th>edit</th>
+                <th>delete</th>
+               </tr>
+                </thead>
+                <tr *ngFor='let user of enrollementService.Users'>
+                <td>{{user.FirstName}}</td>
+                <td>{{user.LastName}}</td>
+                <td>{{user.PhoneNumber}}</td>
+                <td>{{user.Email}}</td>
+                <td>{{user.Password}}</td>
+                <td>{{user.ConfirmPassword}}</td>
+                <td ><a href='/edit/{{user._id}}'><button class='btn btn-custom right' type='submit' (click)='onEdit(user)'  >Edit</button></a></td>
+                <td><button class='btn btn-custom right' type='submit' (click)='onDelete(user._id,userForm)'>Delete</button></td>
+
+                </tr>
+                </table>
+            </div>   
+          </div>
+      </div>
+    </div>
+  </div>
+</div>  
+   

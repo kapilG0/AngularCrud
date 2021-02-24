@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s3">
+
+<form [formGroup]="editForm"  (ngSubmit)="updateData(editForm)">
+  <label>
+    Id:
+    <input type="text" formControlName="_id">
+  </label>
+  <label>
+    First Name:
+    <input type="text" formControlName="FirstName">
+  </label>
+<label>
+    Last Name:
+    <input type="text" formControlName="LastName">
+  </label>
+<label>
+    PhoneNumber:
+    <input type="text" formControlName="PhoneNumber">
+  </label>
+<label>
+    Email:
+    <input type="text" formControlName="Email">
+  </label>
+<label>
+    Password:
+    <input type="text" formControlName="Password">
+  </label>
+<label>
+    ConfirmPassword:
+    <input type="text" formControlName="ConfirmPassword">
+  </label>
+
+<button type="submit">Submit Application</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
